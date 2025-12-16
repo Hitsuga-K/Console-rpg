@@ -33,14 +33,13 @@ class Player(
 
     fun attack(): Int {
         val damage = calculateDamage()
-        // Добавляем случайность урона от 10 до 40 (по заданию)
         val randomDamage = Random.nextInt(10, 41)
         return randomDamage
     }
 
     fun takeDamage(incomingDamage: Int): Boolean {
         val defense = calculateDefense()
-        val actualDamage = maxOf(0, incomingDamage - defense) // урон не может быть отрицательным
+        val actualDamage = maxOf(0, incomingDamage - defense) 
         currentHealth -= actualDamage
 
         println("$name получил $actualDamage урона (броня заблокировала ${incomingDamage - actualDamage}). Осталось HP: $currentHealth/$maxHealth")
